@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banger Bot Live - Nostr Feed</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/nostr-tools@1.17.0/lib/nostr.bundle.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="pixel-header">
+            <div class="dynamite-logo">
+                <img src="image.png" alt="Pixel Art Dynamite" class="dynamite-image">
+            </div>
+            <h1 class="pixel-title">BANGER BOT LIVE</h1>
+            <p class="subtitle">Nostr Feed</p>
+        </header>
+
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-label">Status:</span>
+                <span id="connection-status" class="status-value">Connecting...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Relays:</span>
+                <span id="relay-count" class="status-value">0</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Notes:</span>
+                <span id="note-count" class="status-value">0</span>
+            </div>
+        </div>
+
+        <div class="feed-container">
+            <div id="notes-feed" class="notes-feed">
+                <div class="loading-message">Loading notes...</div>
+            </div>
+        </div>
+
+        <footer class="pixel-footer">
+            <p>Subscribed to: npub1w3yr9u8qp88732he57ekcxct6vraphhd3c63927tw5nte2yfmu0q6sjnaw</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
