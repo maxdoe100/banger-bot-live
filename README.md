@@ -14,7 +14,7 @@ A pixel art themed Nostr feed viewer that subscribes to a specific npub and disp
 
 The website is configured to subscribe to:
 ```
-npub1w3yr9u8qp88732he57ekcxct6vraphhd3c63927tw5nte2yfmu0q6sjnaw
+npub1t83prys2hepmqmln9adygpg8z5fq2lse5v6grjhecagr09rya4qs78wxhz
 ```
 
 ## Connected Relays
@@ -22,10 +22,7 @@ npub1w3yr9u8qp88732he57ekcxct6vraphhd3c63927tw5nte2yfmu0q6sjnaw
 The website connects to these Nostr relays:
 - `wss://relay.damus.io`
 - `wss://nos.lol`
-- `wss://relay.snort.social`
-- `wss://relay.nostr.band`
-- `wss://nostr.wine`
-- `wss://relay.current.fyi`
+- `wss://relay.primal.net/`
 
 ## How to Run
 
@@ -65,8 +62,10 @@ banger-bot-live/
 ## Features
 
 - **Status Display**: Shows connection status, relay count, and note count
-- **Note Cards**: Each note displays author, timestamp, content, and event ID
-- **Auto-scroll**: Feed automatically scrolls to show newest notes
+- **Note Cards**: Each note displays author, timestamp, and content
+- **Quoted Notes**: Displays nested quoted notes with proper styling
+- **Nested Events**: Handles nostr:nevent references and displays nested content
+- **Emoji Support**: Special styling for emojis including larger display for fire and special emojis
 - **Memory Management**: Limits displayed notes to prevent performance issues
 - **Error Handling**: Graceful handling of relay connection failures
 
@@ -82,6 +81,7 @@ Works in all modern browsers that support:
 - The website only displays kind 1 (text note) events with specific structure
 - Events must have tags: ["e", eventId, relayUrl, "mention"] where relayUrl contains "relay."
 - Only events matching the exact target structure are shown
-- Notes are displayed newest first
+- Notes are displayed newest first based on repost time
 - Content is truncated if longer than 200 characters
 - The feed shows the last 100 notes to prevent memory issues
+- Supports nested event display from nostr:nevent references

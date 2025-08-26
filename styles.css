@@ -145,8 +145,6 @@ body {
     border-color: #cc0000;
 }
 
-
-
 .note-header {
     display: flex;
     justify-content: space-between;
@@ -199,11 +197,41 @@ body {
     word-wrap: break-word;
 }
 
-.note-id {
-    font-size: 8px;
-    color: #999;
-    margin-top: 10px;
-    font-family: monospace;
+/* Emoji styling */
+.emoji {
+    font-size: 1.2em;
+    vertical-align: middle;
+}
+
+.emoji-large {
+    font-size: 1.5em;
+    vertical-align: middle;
+}
+
+/* Nested note styling */
+.nested-note {
+    background: rgba(255, 255, 0, 0.15);
+    border: 2px solid rgba(255, 255, 0, 0.3);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 12px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(255, 255, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.nested-note:hover {
+    transform: translateX(2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 0, 0.3);
+    border-color: rgba(255, 255, 0, 0.5);
+    background: rgba(255, 255, 0, 0.2);
+}
+
+.nested-content {
+    font-style: italic;
+    color: #000;
+    line-height: 1.4;
+    font-weight: 500;
 }
 
 /* Quoted Container and Nested Styling */
@@ -212,21 +240,6 @@ body {
     padding-left: 25px;
     position: relative;
 }
-
-/* Removed vertical orange line */
-/* .quoted-container::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: linear-gradient(180deg, 
-        rgba(255, 102, 0, 0.6) 0%, 
-        rgba(255, 102, 0, 0.3) 50%, 
-        rgba(255, 102, 0, 0.1) 100%);
-    border-radius: 2px;
-} */
 
 .quoted-note {
     background: rgba(255, 102, 0, 0.15);
@@ -246,20 +259,6 @@ body {
     background: rgba(255, 102, 0, 0.2);
 }
 
-/* Removed horizontal orange line */
-/* .quoted-note::before {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 20px;
-    width: 15px;
-    height: 2px;
-    background: linear-gradient(90deg, 
-        rgba(255, 102, 0, 0.8) 0%, 
-        rgba(255, 102, 0, 0.3) 100%);
-    border-radius: 1px;
-} */
-
 .quoted-content {
     font-style: italic;
     color: #000;
@@ -276,13 +275,6 @@ body {
     box-shadow: 0 2px 8px rgba(255, 255, 0, 0.2);
 }
 
-/* Removed horizontal orange line for nested level 2 */
-/* .quoted-note .quoted-note::before {
-    background: linear-gradient(90deg, 
-        rgba(255, 255, 0, 0.8) 0%, 
-        rgba(255, 255, 0, 0.3) 100%);
-} */
-
 /* Nested quoted notes - Level 3 */
 .quoted-note .quoted-note .quoted-note {
     background: rgba(255, 100, 0, 0.2);
@@ -291,13 +283,6 @@ body {
     margin-top: 12px;
     box-shadow: 0 2px 8px rgba(255, 100, 0, 0.2);
 }
-
-/* Removed horizontal orange line for nested level 3 */
-/* .quoted-note .quoted-note .quoted-note::before {
-    background: linear-gradient(90deg, 
-        rgba(255, 100, 0, 0.8) 0%, 
-        rgba(255, 100, 0, 0.3) 100%);
-} */
 
 /* Nested quoted notes - Level 4 */
 .quoted-note .quoted-note .quoted-note .quoted-note {
@@ -308,13 +293,6 @@ body {
     box-shadow: 0 2px 8px rgba(200, 100, 255, 0.2);
 }
 
-/* Removed horizontal orange line for nested level 4 */
-/* .quoted-note .quoted-note .quoted-note .quoted-note::before {
-    background: linear-gradient(90deg, 
-        rgba(200, 100, 255, 0.8) 0%, 
-        rgba(200, 100, 255, 0.3) 100%);
-} */
-
 /* Nested quoted notes - Level 5 */
 .quoted-note .quoted-note .quoted-note .quoted-note .quoted-note {
     background: rgba(100, 200, 255, 0.2);
@@ -324,13 +302,6 @@ body {
     box-shadow: 0 2px 8px rgba(100, 200, 255, 0.2);
 }
 
-/* Removed horizontal orange line for nested level 5 */
-/* .quoted-note .quoted-note .quoted-note .quoted-note .quoted-note::before {
-    background: linear-gradient(90deg, 
-        rgba(100, 200, 255, 0.8) 0%, 
-        rgba(100, 200, 255, 0.3) 100%);
-} */
-
 /* Nested quoted notes - Level 6+ */
 .quoted-note .quoted-note .quoted-note .quoted-note .quoted-note .quoted-note {
     background: rgba(255, 102, 0, 0.25);
@@ -339,13 +310,6 @@ body {
     margin-top: 12px;
     box-shadow: 0 2px 8px rgba(255, 102, 0, 0.3);
 }
-
-/* Removed horizontal orange line for nested level 6+ */
-/* .quoted-note .quoted-note .quoted-note .quoted-note .quoted-note .quoted-note::before {
-    background: linear-gradient(90deg, 
-        rgba(255, 102, 0, 0.9) 0%, 
-        rgba(255, 102, 0, 0.4) 100%);
-} */
 
 /* Footer */
 .pixel-footer {
