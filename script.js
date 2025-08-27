@@ -315,7 +315,7 @@ const eventProcessor = {
             return;
         }
         
-        if (!decoded || !decoded.data || !decoded.data.id) {
+        if (!decoded || decoded.type !== 'nevent' || !decoded.data || !decoded.data.id) {
             console.log('Invalid nevent reference structure:', neventRef);
             return;
         }
@@ -646,10 +646,16 @@ const uiManager = {
                     if (neventPart && neventPart.length >= 10 && /^[a-zA-Z0-9]+$/.test(neventPart)) {
                         // Try to decode the nevent to validate it before adding
                         try {
-                            window.NostrTools.nip19.decode(match);
-                            neventRefs.push(match);
-                            // Remove the nevent reference from clean content
-                            cleanContent = cleanContent.replace(match, '').trim();
+                            const decoded = window.NostrTools.nip19.decode(match);
+                            // Additional validation to ensure it's a valid event
+                            if (decoded && decoded.type === 'nevent' && decoded.data && decoded.data.id) {
+                                neventRefs.push(match);
+                                // Remove the nevent reference from clean content
+                                cleanContent = cleanContent.replace(match, '').trim();
+                            } else {
+                                console.log('Skipping nevent with invalid structure:', match);
+                                cleanContent = cleanContent.replace(match, '').trim();
+                            }
                         } catch (decodeError) {
                             console.log('Skipping nevent with invalid checksum:', match);
                             console.log('Decode error:', decodeError.message);

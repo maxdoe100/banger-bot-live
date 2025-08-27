@@ -6,6 +6,7 @@
   "scripts": {
     "start": "npx http-server -p 8000",
     "dev": "npx http-server -p 8000",
+    "build": "echo 'Static site - no build step needed'",
     "deploy": "vercel --prod"
   },
   "keywords": [
