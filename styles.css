@@ -323,24 +323,304 @@ body {
     text-shadow: 1px 1px 0px #000;
 }
 
-/* Responsive Design */
+/* Enhanced Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        max-width: 100%;
+    }
+    
+    .pixel-header {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .pixel-title {
+        font-size: 20px;
+    }
+    
+    .subtitle {
+        font-size: 10px;
+    }
+    
+    .dynamite-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .status-bar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px;
+        font-size: 9px;
+    }
+    
+    .status-item {
+        flex: 1;
+        min-width: 80px;
+    }
+    
+    .feed-container {
+        padding: 15px;
+        max-height: 400px;
+    }
+    
+    .note-card {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .note-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .note-author {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+    
+    .author-pic {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .author-name {
+        font-size: 9px;
+    }
+    
+    .note-time {
+        font-size: 9px;
+        align-self: flex-end;
+    }
+    
+    .note-content {
+        font-size: 11px;
+    }
+    
+    .quoted-container {
+        padding-left: 15px;
+    }
+    
+    .quoted-note,
+    .nested-note {
+        padding: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .quoted-content,
+    .nested-content {
+        font-size: 10px;
+    }
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 10px;
     }
     
-    .pixel-title {
-        font-size: 18px;
+    .pixel-header {
+        padding: 12px;
+        margin-bottom: 15px;
     }
     
-    .status-bar {
-        flex-direction: column;
-        gap: 10px;
+    .pixel-title {
+        font-size: 16px;
+    }
+    
+    .subtitle {
+        font-size: 9px;
     }
     
     .dynamite-image {
         width: 80px;
         height: 80px;
+    }
+    
+    .status-bar {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px;
+        font-size: 8px;
+    }
+    
+    .status-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .status-label {
+        margin-bottom: 0;
+    }
+    
+    .feed-container {
+        padding: 12px;
+        max-height: 350px;
+    }
+    
+    .note-card {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+    
+    .note-content {
+        font-size: 10px;
+    }
+    
+    .quoted-container {
+        padding-left: 10px;
+    }
+    
+    .quoted-note,
+    .nested-note {
+        padding: 10px;
+        margin-bottom: 8px;
+    }
+    
+    .quoted-content,
+    .nested-content {
+        font-size: 9px;
+    }
+    
+    .pixel-footer {
+        padding: 12px;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 8px;
+    }
+    
+    .pixel-header {
+        padding: 10px;
+        margin-bottom: 12px;
+    }
+    
+    .pixel-title {
+        font-size: 14px;
+    }
+    
+    .subtitle {
+        font-size: 8px;
+    }
+    
+    .dynamite-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .status-bar {
+        padding: 8px;
+        font-size: 7px;
+    }
+    
+    .feed-container {
+        padding: 10px;
+        max-height: 300px;
+    }
+    
+    .note-card {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .note-header {
+        gap: 6px;
+    }
+    
+    .note-author {
+        font-size: 8px;
+        padding: 2px 4px;
+    }
+    
+    .author-pic {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .author-name {
+        font-size: 8px;
+    }
+    
+    .note-time {
+        font-size: 8px;
+    }
+    
+    .note-content {
+        font-size: 9px;
+    }
+    
+    .quoted-container {
+        padding-left: 8px;
+    }
+    
+    .quoted-note,
+    .nested-note {
+        padding: 8px;
+        margin-bottom: 6px;
+    }
+    
+    .quoted-content,
+    .nested-content {
+        font-size: 8px;
+    }
+    
+    .pixel-footer {
+        padding: 10px;
+        font-size: 7px;
+    }
+}
+
+@media (max-width: 360px) {
+    .pixel-title {
+        font-size: 12px;
+    }
+    
+    .subtitle {
+        font-size: 7px;
+    }
+    
+    .dynamite-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .note-content {
+        font-size: 8px;
+    }
+    
+    .quoted-content,
+    .nested-content {
+        font-size: 7px;
+    }
+}
+
+/* Touch-friendly improvements for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .note-card:hover {
+        transform: none;
+    }
+    
+    .quoted-note:hover,
+    .nested-note:hover {
+        transform: none;
+    }
+    
+    /* Increase touch targets */
+    .note-card {
+        min-height: 44px;
+    }
+    
+    .status-item {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 }
 
