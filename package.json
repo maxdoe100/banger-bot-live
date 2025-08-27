@@ -1,0 +1,26 @@
+{
+  "name": "banger-bot-live",
+  "version": "1.0.0",
+  "description": "A pixel art themed Nostr feed viewer that subscribes to a specific npub and displays their kind 1 notes in real-time",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000",
+    "dev": "npx http-server -p 8000",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "nostr",
+    "feed",
+    "pixel-art",
+    "real-time",
+    "websocket"
+  ],
+  "author": "Banger Bot",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

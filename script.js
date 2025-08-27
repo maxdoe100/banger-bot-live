@@ -291,10 +291,32 @@ const eventProcessor = {
 
     async fetchNestedEvent(neventRef, parentEventId) {
     try {
-        // Decode the nevent reference
-        const decoded = window.NostrTools.nip19.decode(neventRef);
+        // Validate nevent format before attempting to decode
+        if (!neventRef || typeof neventRef !== 'string' || !neventRef.startsWith('nostr:nevent')) {
+            console.log('Invalid nevent format:', neventRef);
+            return;
+        }
+        
+        // Additional validation for nevent format
+        const neventPart = neventRef.replace('nostr:nevent', '');
+        if (!neventPart || neventPart.length < 10) {
+            console.log('Nevent too short:', neventRef);
+            return;
+        }
+        
+        // Try to decode the nevent reference
+        let decoded;
+        try {
+            decoded = window.NostrTools.nip19.decode(neventRef);
+        } catch (decodeError) {
+            console.log('Failed to decode nevent (invalid checksum or malformed):', neventRef);
+            console.log('Decode error:', decodeError.message);
+            // Don't throw the error, just return gracefully
+            return;
+        }
+        
         if (!decoded || !decoded.data || !decoded.data.id) {
-            console.log('Invalid nevent reference:', neventRef);
+            console.log('Invalid nevent reference structure:', neventRef);
             return;
         }
         
@@ -351,7 +373,10 @@ const eventProcessor = {
         });
         
     } catch (error) {
-        console.error('Error decoding nevent reference:', error);
+        console.error('Unexpected error in fetchNestedEvent:', error);
+        console.log('Problematic nevent reference:', neventRef);
+        // Continue processing other nevent references instead of crashing
+        return;
     }
 }
 };
@@ -614,9 +639,33 @@ const uiManager = {
         if (matches) {
             console.log('Found nevent references:', matches);
             matches.forEach(match => {
-                neventRefs.push(match);
-                // Remove the nevent reference from clean content
-                cleanContent = cleanContent.replace(match, '').trim();
+                // More thorough validation of nevent format before adding
+                if (match && match.length > 20) { // Minimum reasonable length for nevent
+                    // Check if it looks like a valid nevent format
+                    const neventPart = match.replace('nostr:nevent', '');
+                    if (neventPart && neventPart.length >= 10 && /^[a-zA-Z0-9]+$/.test(neventPart)) {
+                        // Try to decode the nevent to validate it before adding
+                        try {
+                            window.NostrTools.nip19.decode(match);
+                            neventRefs.push(match);
+                            // Remove the nevent reference from clean content
+                            cleanContent = cleanContent.replace(match, '').trim();
+                        } catch (decodeError) {
+                            console.log('Skipping nevent with invalid checksum:', match);
+                            console.log('Decode error:', decodeError.message);
+                            // Remove the invalid nevent reference from content anyway
+                            cleanContent = cleanContent.replace(match, '').trim();
+                        }
+                    } else {
+                        console.log('Skipping invalid nevent format:', match);
+                        // Remove the invalid nevent reference from content
+                        cleanContent = cleanContent.replace(match, '').trim();
+                    }
+                } else {
+                    console.log('Skipping malformed nevent reference:', match);
+                    // Remove the malformed nevent reference from content
+                    cleanContent = cleanContent.replace(match, '').trim();
+                }
             });
         }
         
