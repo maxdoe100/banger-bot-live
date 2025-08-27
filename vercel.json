@@ -20,6 +20,10 @@
     {
       "src": "favicon-16x16.png",
       "use": "@vercel/static"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "use": "@vercel/static"
     }
   ],
   "rewrites": [
@@ -77,7 +81,20 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
+          "value": "public, max-age=86400"
+        },
+        {
+          "key": "Content-Type",
+          "value": "image/png"
+        }
+      ]
+    },
+    {
+      "source": "favicon-32x32.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
         },
         {
           "key": "Content-Type",
