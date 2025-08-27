@@ -26,17 +26,19 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
 /* Header with Dynamite Logo */
 .pixel-header {
     text-align: center;
-    margin-bottom: 30px;
-    padding: 20px;
+    margin-bottom: 15px;
+    padding: 15px;
     background: rgba(255, 255, 255, 0.1);
     border: 4px solid #000;
     border-radius: 8px;
     position: relative;
+    flex-shrink: 0;
 }
 
 .dynamite-logo {
@@ -83,6 +85,7 @@ body {
     padding: 15px;
     margin-bottom: 20px;
     font-size: 10px;
+    margin-top: auto;
 }
 
 .status-item {
@@ -111,7 +114,8 @@ body {
     padding: 20px;
     margin-bottom: 20px;
     overflow-y: auto;
-    max-height: 500px;
+    max-height: 70vh;
+    min-height: 60vh;
 }
 
 .notes-feed {
@@ -321,6 +325,7 @@ body {
     font-size: 10px;
     color: #fff;
     text-shadow: 1px 1px 0px #000;
+    margin-top: auto;
 }
 
 /* Enhanced Responsive Design */
@@ -331,8 +336,8 @@ body {
     }
     
     .pixel-header {
-        padding: 15px;
-        margin-bottom: 20px;
+        padding: 12px;
+        margin-bottom: 12px;
     }
     
     .pixel-title {
@@ -348,22 +353,25 @@ body {
         height: 100px;
     }
     
+    .feed-container {
+        padding: 15px;
+        max-height: 75vh;
+        min-height: 65vh;
+        margin-bottom: 15px;
+    }
+    
     .status-bar {
         flex-direction: row;
         flex-wrap: wrap;
         gap: 10px;
         padding: 12px;
         font-size: 9px;
+        margin-top: auto;
     }
     
     .status-item {
         flex: 1;
         min-width: 80px;
-    }
-    
-    .feed-container {
-        padding: 15px;
-        max-height: 400px;
     }
     
     .note-card {
@@ -422,8 +430,8 @@ body {
     }
     
     .pixel-header {
-        padding: 12px;
-        margin-bottom: 15px;
+        padding: 10px;
+        margin-bottom: 10px;
     }
     
     .pixel-title {
@@ -439,11 +447,19 @@ body {
         height: 80px;
     }
     
+    .feed-container {
+        padding: 12px;
+        max-height: 80vh;
+        min-height: 70vh;
+        margin-bottom: 12px;
+    }
+    
     .status-bar {
         flex-direction: column;
         gap: 8px;
         padding: 10px;
         font-size: 8px;
+        margin-top: auto;
     }
     
     .status-item {
@@ -454,11 +470,6 @@ body {
     
     .status-label {
         margin-bottom: 0;
-    }
-    
-    .feed-container {
-        padding: 12px;
-        max-height: 350px;
     }
     
     .note-card {
@@ -488,6 +499,7 @@ body {
     .pixel-footer {
         padding: 12px;
         font-size: 8px;
+        margin-top: auto;
     }
 }
 
@@ -497,8 +509,8 @@ body {
     }
     
     .pixel-header {
-        padding: 10px;
-        margin-bottom: 12px;
+        padding: 8px;
+        margin-bottom: 8px;
     }
     
     .pixel-title {
@@ -514,14 +526,17 @@ body {
         height: 60px;
     }
     
+    .feed-container {
+        padding: 10px;
+        max-height: 85vh;
+        min-height: 75vh;
+        margin-bottom: 10px;
+    }
+    
     .status-bar {
         padding: 8px;
         font-size: 7px;
-    }
-    
-    .feed-container {
-        padding: 10px;
-        max-height: 300px;
+        margin-top: auto;
     }
     
     .note-card {
@@ -573,6 +588,7 @@ body {
     .pixel-footer {
         padding: 10px;
         font-size: 7px;
+        margin-top: auto;
     }
 }
 
@@ -588,6 +604,11 @@ body {
     .dynamite-image {
         width: 50px;
         height: 50px;
+    }
+    
+    .feed-container {
+        max-height: 90vh;
+        min-height: 80vh;
     }
     
     .note-content {
