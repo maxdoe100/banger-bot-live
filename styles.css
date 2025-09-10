@@ -114,8 +114,8 @@ body {
     padding: 20px;
     margin-bottom: 20px;
     overflow-y: auto;
-    max-height: 70vh;
-    min-height: 60vh;
+    max-height: 80vh;
+    min-height: 70vh;
 }
 
 .notes-feed {
@@ -355,8 +355,8 @@ body {
     
     .feed-container {
         padding: 15px;
-        max-height: 75vh;
-        min-height: 65vh;
+        max-height: 85vh;
+        min-height: 75vh;
         margin-bottom: 15px;
     }
     
@@ -449,8 +449,8 @@ body {
     
     .feed-container {
         padding: 12px;
-        max-height: 80vh;
-        min-height: 70vh;
+        max-height: 90vh;
+        min-height: 80vh;
         margin-bottom: 12px;
     }
     
@@ -528,8 +528,8 @@ body {
     
     .feed-container {
         padding: 10px;
-        max-height: 85vh;
-        min-height: 75vh;
+        max-height: 95vh;
+        min-height: 85vh;
         margin-bottom: 10px;
     }
     
@@ -607,8 +607,8 @@ body {
     }
     
     .feed-container {
-        max-height: 90vh;
-        min-height: 80vh;
+        max-height: 98vh;
+        min-height: 90vh;
     }
     
     .note-content {

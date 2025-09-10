@@ -17,6 +17,8 @@ The website is configured to subscribe to:
 npub1t83prys2hepmqmln9adygpg8z5fq2lse5v6grjhecagr09rya4qs78wxhz
 ```
 
+live at: https://banger-bot-live.vercel.app/
+
 ## Connected Relays
 
 The website connects to these Nostr relays:
